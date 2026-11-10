@@ -1,0 +1,53 @@
+# ==========================================
+# MATLAB & Simulink
+# ==========================================
+# File temporanei e di backup di MATLAB
+*.asv
+*.m~
+*.slx~
+*.mdl~
+
+# Log, autosave e crash report
+*.log
+octave-workspace
+*.crashdata
+
+# MEX file (codice C/C++ compilato per MATLAB)
+*.mex*
+*.mexa64
+*.mexmaci64
+*.mexw64
+
+# Directory di build e cache generate da Simulink / MATLAB Coder
+slprj/
+codegen/
+sfun_*.c
+*_build/
+*.p
+
+# File di configurazione locale e preferenze di MATLAB/Simulink
+*.prj.user
+*.mldatx.cache
+*.mat.bak
+
+# Dati di grandi dimensioni o esportazioni temporanee (opzionale)
+# scommenta se non vuoi tracciare i file .mat pesanti generati durante l'esecuzione:
+# *.mat
+
+# ==========================================
+# OS & IDE Temp Files
+# ==========================================
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code / Editor vari (se modifichi i file fuori da MATLAB)
+.vscode/
+.idea/
