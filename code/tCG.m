@@ -1,18 +1,30 @@
-function v = tCG (v0,H_fun,b,delta, max_it)
+function v = tCG (H_fun,b,delta, max_it)
 
     it = 0;
-    v = v0;
+    v = zeros(length(b),1);
     r = b - H_fun(v);
     p = r;
+
+    if norm(r, 2) <= min(0.1, norm(b,2)) * (norm(b,2))
+        return;
+    end
     
     while it<max_it
         Hp = H_fun(p);
-        alpha = r' * r/(p'*Hp);
-    
-        if((p'*Hp)<=0 || norm((v + alpha*p),2)>=delta)
-            ts = roots([norm(p)^2, 2*(v'*p), norm(v)^2-delta^2]);
-            t_plus = max(ts);
-            v  = v + t_plus * p;   
+
+     
+
+        if (p'*Hp) <= 0
+            ts = roots([norm(p)^2, 2*(v'*p), norm(v)^2 - delta^2]);
+            v = v + max(ts) * p;
+            return;
+        end
+        
+        alpha = (r' * r) / (p'*Hp);
+       
+        if norm(v + alpha*p, 2) >= delta
+            ts = roots([norm(p)^2, 2*(v'*p), norm(v)^2 - delta^2]);
+            v = v + max(ts) * p;
             return;
         end
         
